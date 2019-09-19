@@ -1,0 +1,4 @@
+tasks:
+- summary: My Cool Task
+  assignee: ${JIRA_USERNAME}
+  description: My multiline description ${coolDescription}\\with a new line\n * [google|https://www.google.com]
