@@ -12,6 +12,14 @@
 		<jacoco.version>0.7.9</jacoco.version>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>jboss-releases-repository</id>
+			<name>JBoss Releases Repository</name>
+			<url>https://repository.jboss.org</url>
+		</repository>
+	</repositories>
+
 	<distributionManagement>
 		<repository>
 			<id>jboss-releases-repository</id>
