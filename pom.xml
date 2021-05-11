@@ -6,6 +6,31 @@
 	<artifactId>task-generator</artifactId>
 	<version>0.0.8</version>
 	<packaging>jar</packaging>
+
+	<name>task-generator</name>
+	<description>jira task generator</description>
+	<url>https://github.com/qetools/task-generator</url>
+	<developers>
+		<developer>
+			<name>apodhrad</name>
+		</developer>
+		<developer>
+			<name>fmongiar</name>
+		</developer>
+	</developers>
+	<scm>
+		<url>https://github.com/qetools/task-generator</url>
+		<connection>scm:git:git://github.com/qetools/task-generator</connection>
+		<developerConnection>scm:git:git@github.com/qetools/task-generator</developerConnection>
+	</scm>
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
