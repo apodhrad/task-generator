@@ -16,4 +16,5 @@ buildNumber.properties
 .project
 .settings
 .idea
+.vscode
 *.iml
