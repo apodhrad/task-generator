@@ -27,12 +27,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.qetools.task_generator.AccessTokenCredentials;
 import org.qetools.task_generator.api.JiraClient;
 import org.qetools.task_generator.api.JiraIssue;
 import org.qetools.task_generator.api.JiraQuery;
 
 import net.rcarz.jiraclient.BasicCredentials;
 import net.rcarz.jiraclient.Field;
+import net.rcarz.jiraclient.ICredentials;
 import net.rcarz.jiraclient.Issue;
 import net.rcarz.jiraclient.Issue.FluentCreate;
 import net.rcarz.jiraclient.Issue.SearchResult;
@@ -43,6 +45,7 @@ public class JiraClientRcarz implements JiraClient {
 	private String url;
 	private String username;
 	private String password;
+	private String accessToken;
 	private net.rcarz.jiraclient.JiraClient jira;
 
 	public JiraClientRcarz() {
@@ -61,9 +64,18 @@ public class JiraClientRcarz implements JiraClient {
 	}
 
 	@Override
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
+	}
+
+	@Override
 	public void initialize() {
 		try {
-			jira = new net.rcarz.jiraclient.JiraClient(url, new BasicCredentials(username, password));
+			if (this.username == null) {
+				jira = new net.rcarz.jiraclient.JiraClient(url, new AccessTokenCredentials(accessToken));
+			} else {
+				jira = new net.rcarz.jiraclient.JiraClient(url, new BasicCredentials(username, password));
+			}
 		} catch (JiraException e) {
 			throw new RuntimeException("Cannot initialize jira client.", e);
 		}

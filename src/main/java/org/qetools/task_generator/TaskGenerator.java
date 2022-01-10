@@ -122,15 +122,15 @@ public class TaskGenerator {
 		String jiraUrl = variableResolver.getStringLookup().lookup("JIRA_URL");
 		String jiraUsername = variableResolver.getStringLookup().lookup("JIRA_USERNAME");
 		String jiraPassword = variableResolver.getStringLookup().lookup("JIRA_PASSWORD");
+		String jiraAccessToken = variableResolver.getStringLookup().lookup("JIRA_ACCESS_TOKEN");
 		String jiraPasswordBase64 = variableResolver.getStringLookup().lookup("JIRA_PASSWORD_BASE64");
 
 		jira.setUrl(jiraUrl);
-		if (jiraPassword == null) {
-			if (jiraPasswordBase64 == null) {
-				throw new RuntimeException("Please specify a password");
-			}
+		if (jiraPassword == null && jiraPasswordBase64 != null) {
 			jiraPassword = new String(Base64.getDecoder().decode(jiraPasswordBase64), Charset.forName("UTF-8"));
 		}
+
+		jira.setAccessToken(jiraAccessToken);
 		jira.setCredentials(jiraUsername, jiraPassword);
 		jira.initialize();
 	}

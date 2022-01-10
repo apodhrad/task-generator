@@ -36,6 +36,7 @@ public class JiraClientImpl implements JiraClient {
 	private String url;
 	private String username;
 	private String password;
+	private String accessToken;
 	private List<JiraIssue> issues;
 
 	public JiraClientImpl() {
@@ -52,6 +53,11 @@ public class JiraClientImpl implements JiraClient {
 	public void setCredentials(String username, String password) {
 		this.username = username;
 		this.password = password;
+	}
+
+	@Override
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
 	}
 
 	@Override
