@@ -47,6 +47,13 @@ public interface JiraClient {
 	void setCredentials(String username, String password);
 
 	/**
+	 * Set access token.
+	 *
+	 * @param accessToken Username
+	 */
+	void setAccessToken(String accessToken);
+
+	/**
 	 * Initializes the Jira client.
 	 */
 	void initialize();
